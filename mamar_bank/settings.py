@@ -17,7 +17,7 @@ environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+SECRET_KEY=env("SECRET_KEY")
 
 SECRET_KEY = 'django-insecure-8nvyn1dfl$vqpg^74h&(3e6^w2!#d^h^3!lgz(-rr&zwgl3wh_'
 
@@ -107,11 +107,11 @@ WSGI_APPLICATION = 'mamar_bank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "mamar_bank",
-        'USER': "postgres",
-        'PASSWORD': "123",
-        'HOST': "localhost",
-        'PORT': 5432,
+        'NAME': env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
     }
 }
 
@@ -166,7 +166,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mahmudulabin@gmail.com'
-EMAIL_HOST_PASSWORD = 'tqem pqad bjwh hsuz'
+EMAIL_HOST_USER = env("EMAIL")
+EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
 
 
